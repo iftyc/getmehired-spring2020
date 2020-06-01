@@ -1,0 +1,16 @@
+<h2> Create Album</h2>
+
+<nav class="navbar navbar-light bg-light">
+      <a [routerLink]="['/albums']" class="btn btn-outline-success" type="submit">Go to Albums</a>
+</nav>
+
+
+
+<input type="text" [(ngModel)]="albumTitle" placeholder="My Album Title">
+
+<br/><br/>
+
+<angular-file-uploader 
+      [config]="afuConfig"
+      (ApiResponse)="createAlbum($event)">
+</angular-file-uploader>

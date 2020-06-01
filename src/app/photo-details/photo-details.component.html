@@ -1,0 +1,24 @@
+
+<div *ngIf="photo">
+    <img src="{{photo.photoUrl}}" width="400px">
+</div>
+
+<div *ngIf="!photo">
+    Photo not loaded.
+</div>
+
+    <br>
+
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="comment">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="makeComment()">Comment</button>
+
+    <div *ngIf="comment" class="alert alert-primary" role="alert" style="text-align: left;">
+        {{comment}}
+    </div>
+
+    <div class="alert alert-secondary" role="alert" *ngFor="let oldComment of allComments" style="text-align: right;">
+        "{{oldComment.comment}}" - <a [routerLink]="['/profile', oldComment.createdBy]"> {{oldComment.createdBy}} </a> on {{oldComment.dateCreated}}
+    </div>
